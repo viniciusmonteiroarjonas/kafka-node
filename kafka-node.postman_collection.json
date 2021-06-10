@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "dab045b9-2955-42cb-8a77-afb9a473f83c",
+		"name": "kafka-node",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criar certificado",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\":{\n        \"id\": 1,\n        \"name\": \"Vinicius Monteiro Arjonas\"\n    },\n    \"course\": \"Kafka com Node.js\",\n    \"grade\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/certifications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"certifications"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
