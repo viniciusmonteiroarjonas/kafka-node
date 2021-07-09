@@ -12,7 +12,7 @@ async function run() {
   await producer.connect();
   await consumer.connect();
   await consumer.subscribe({
-    topic: 'issue-certificate',
+    topic: 'gera-certificado',
     fromBeginning: true,
   });
 
@@ -28,7 +28,7 @@ async function run() {
       const payload = JSON.parse(message.value);
 
       await producer.send({
-        topic: 'certification-response',
+        topic: 'certificados-recebidos',
         messages: [
           {
             value: `Certificado do aluno ${payload.user.name}, gerado com sucesso do curso ${payload.course}`,

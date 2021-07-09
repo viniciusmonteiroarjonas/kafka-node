@@ -13,7 +13,7 @@ routes.post('/certifications', async (req, res) => {
 
   // Chamar micro serviço
   await req.producer.send({
-    topic: 'issue-certificate',
+    topic: 'gera-certificado',
     messages: [{ value: JSON.stringify(message) }],
   });
 

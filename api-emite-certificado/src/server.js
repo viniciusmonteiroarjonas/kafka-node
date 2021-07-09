@@ -44,7 +44,7 @@ async function run() {
   await consumer.connect();
 
   await consumer.subscribe({
-    topic: 'certification-response',
+    topic: 'certificados-recebidos',
     fromBeginning: true,
   });
 

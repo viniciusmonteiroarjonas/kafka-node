@@ -1,4 +1,6 @@
-# Micro Serviço com Node.Js
+# Micro Serviço de Messangeria com Node.js e Apache Kafka
+
+<img src="diagrama.png">
 
 ## Tecnologias
 
@@ -8,13 +10,13 @@
 
 ## Aplicações
 
-- API principal (Station)
-- Geração de certificado
+- api-emite-certificado
+- api-recebe-certificado
 
 ## Fluxo
 
-- API principal envia uma mensagem para o serviço de certificado para gerar certificado.
-- Micro-serviço de certificado devolve uma resposta, falando que o certificado foi gerado com sucesso.
+- A API "emite-certificado" ao iniciar a aplicação ela faz uma incrição no kafka para consumir o tópico "certificados-recebidos" que é um tópico produzido pela API "recebe-certificado", que retorna uma mensagem quando a API "emite-certificado" produz uma mensagem no tópico "gera-certificado" enviando os dados do usuário e o curso no qual está sendo gerado o certificado, feito isso ela retorna uma mensagem com os dados do usuário.
+
 
 # Como rodar a aplicação
 
@@ -29,7 +31,7 @@
 docker-composer up -d
 ```
 
-**Acessar o diretório da /api por uma janela do terminal e rodar os comandos abaixo:**
+**Acessar o diretório da /api-emite-certificado por uma janela do terminal e rodar os comandos abaixo:**
 
 **Instalar as dependências do projeto**
 
@@ -43,7 +45,7 @@ npm install
 npm run dev
 ```
 
-**Acessar o diretório da /certification por uma janela do terminal e rodar os comandos abaixo:**
+**Acessar o diretório da /api-recebe-certificado por uma janela do terminal e rodar os comandos abaixo:**
 
 **Instalar as dependências do projeto**
 
